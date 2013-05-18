@@ -9,14 +9,13 @@ public class TextProcessor {
     public TextProcessor(String textforProcessing) {
         this.textforProcessing = textforProcessing;
     }
+    
     public String [] getRepeatedWords(){
         String [] repeatedWords= new String [0];
         for(String word : textforProcessing.split(" ")){
-            if(isRepeatedWord(word)&& !containsWord(word,repeatedWords)){
-                String finalWord = cleanWord(word);
+            String finalWord = cleanWord(word);
+            if(isRepeatedWord(finalWord)&& !containsWord(finalWord,repeatedWords))
                 repeatedWords=addWord(finalWord,repeatedWords);
-            }
-            
         }
         return repeatedWords;
     }
@@ -30,8 +29,10 @@ public class TextProcessor {
 
     private boolean isRepeatedWord(String word) {
         int count =0;
-        for(String textWord : textforProcessing.split(" "))
-            if(word.equals(textWord)) count++;
+        for(String textWord : textforProcessing.split(" ")){
+            String finalWord = cleanWord(textWord);
+            if(word.equals(finalWord)) count++;
+        }
         return count>1;
     }
 
