@@ -4,7 +4,7 @@ package Operations;
 import TextProcessor.MultipleTextProcessor;
 
 public class Operations {
-    private final static String [] interjectionSigns = {",",";","."};
+    private final static String [] interjectionSigns = {",",";",".","?","¿","¡","!"};
     
     public static String[] addWord(String finalWord, String[] repeatedWords) {
         String[] words = new String[repeatedWords.length + 1];
